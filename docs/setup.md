@@ -1,4 +1,4 @@
-# OMS Workspace
+﻿# OMS Workspace
 
 An OMS (Operations Management Suite) workspace is needed as the platform aggregating data from all Azure Stacks. 
 
@@ -73,7 +73,7 @@ The following are required to setup the environment. You should gather these var
 
 The scripts sets up 2 scheduled tasks: 
 1. Upload of 1-day worth of usage data provided from the Provider Usage API at 9am every day.
-2. Upload of operational data every 13 minutes. (Note this is disabled in the current release while the script for usage is fixed)
+2. Upload of operational data every 13 minutes.
 
 The data are uploaded to the OMS workspace you specified in the ARM template. 
 
