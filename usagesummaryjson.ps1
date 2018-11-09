@@ -209,7 +209,7 @@ $pos = $Username.IndexOf('@')
 $aadDomain = $Username.Substring($pos + 1)
 
 
-Add-AzureRMEnvironment -Name "$cloudName2" -ArmEndpoint $AzureStackAdminEndPoint
+Add-AzureRMEnvironment -Name $cloudName2 -ArmEndpoint $AzureStackAdminEndPoint
 Login-AzureRmAccount -EnvironmentName $cloudName2 -Credential $aadCred
 
 # store the result of the usage api records for the time period from the day before yesterday to yesterday in a json file. 
