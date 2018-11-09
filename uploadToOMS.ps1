@@ -33,7 +33,7 @@ $AzSOEM = $info.Oem
 #################################################################################
 ##############################################################################################################
 # Get Data via PS for Cloud 2
-Add-AzureRMEnvironment -Name "$cloudName2" -ArmEndpoint $AzureStackAdminEndPoint
+Add-AzureRMEnvironment -Name $cloudName2 -ArmEndpoint $AzureStackAdminEndPoint
 Add-AzureRmAccount -EnvironmentName $cloudName2 -Credential $Credential2
 
 
