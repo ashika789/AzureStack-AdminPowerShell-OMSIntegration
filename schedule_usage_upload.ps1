@@ -1,25 +1,16 @@
 #Usage Data Upload
-
 $action = New-ScheduledTaskAction -Execute 'Powershell' `
 -Argument '.\asUsageToOMS.ps1' -WorkingDirectory "C:\AZSAdminOMSInt"
 $description = "Daily upload of usage data from azure stack to OMS"
 $taskName = "UsageDataUpload1"
 
-#$trigger = New-ScheduledTaskTrigger -Daily -At 9am
-$trigger = New-ScheduledTaskTrigger -once -at (Get-date) -RepetitionInterval (New-TimeSpan -Minutes 13) -RepetitionDuration (New-TimeSpan -Days 9999) 
-
+$trigger = New-ScheduledTaskTrigger -Daily -At 9am
 $principal = New-ScheduledTaskPrincipal -UserID "NT AUTHORITY\SYSTEM"
 
 $twoHours = New-TimeSpan -Hour 2
-$tenMinutes = New-TimeSpan -Minute 10
-
-#$settings = New-ScheduledTaskSettingsSet -ExecutionTimeLimit $twoHours
-$settings = New-ScheduledTaskSettingsSet -ExecutionTimeLimit $tenMinutes
+$settings = New-ScheduledTaskSettingsSet -ExecutionTimeLimit $twoHours
 
 Register-ScheduledTask -Action $action -Trigger $trigger -TaskName $taskName -Principal $principal -Description $description -Settings $settings
-
-
-<# Temp Script
 
 #Operational Data Upload
 $action = New-ScheduledTaskAction -Execute 'Powershell' `
@@ -34,4 +25,3 @@ $tenMinutes = New-TimeSpan -Minute 10
 $settings = New-ScheduledTaskSettingsSet -ExecutionTimeLimit $tenMinutes
 
 Register-ScheduledTask -Action $action -Trigger $trigger -TaskName $taskName -Principal $principal -Description $description -Settings $settings
-#>
