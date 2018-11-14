@@ -68,8 +68,8 @@ The following are required to setup the environment. You should gather these var
 
 ### Step 5 – Execute the script & update the scheduled task
 1.	Run the InvokeMasterScript.ps1 now that the variables have been updated.
-2.	Once the script completes, open Task Scheduler, right click on the newly created task named UsageDataUpload1, click Properties, and click "Change User or Group" (the Run As account) to the Admin UserName and Password of the UploadToOMSVM VM.
-3. 	Click Run. Data will be piushed every 13 minutes now.
+2.	Once the script completes, open Task Scheduler, right click on the newly created tasks named UsageDataUpload1 & OperationalDataUpload1, click Properties, and click "Change User or Group" (the Run As account) to the Admin UserName and Password of the UploadToOMSVM VM.
+3. 	Click Run. Operational Data will be piushed every 13 minutes now. Usage Data will be pushed at 9am every day.
 
 The scripts sets up 2 scheduled tasks: 
 1. Upload of 1-day worth of usage data provided from the Provider Usage API at 9am every day.
